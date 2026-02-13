@@ -70,8 +70,8 @@
       ttl: 1
     loop: "{{ instances }}"
     when:
-      - item == "frontend"
-      - action == "destroy"
+    - item == "frontend"
+    - action == "destroy"
 
   - name: delete r53 records
     amazon.aws.route53:
