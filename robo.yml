@@ -43,6 +43,7 @@
       overwrite: true
     loop: "{{ ec2_output.results }}"
     when: action == "create"
+    
   - name: create r53 records frontend
     amazon.aws.route53:
       state: present
@@ -69,7 +70,7 @@
     when:
     - item == "frontend"
     - action == "destroy"
-    
+
   - name: delete r53 records
     amazon.aws.route53:
       state: absent
