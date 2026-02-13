@@ -47,5 +47,5 @@
   - name: start cart
     ansible.builtin.service: 
       name: cart
-      state: restared
+      state: restarted
       enabled: yes
