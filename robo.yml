@@ -30,6 +30,7 @@
     ansible.builtin.debug:
       msg: "{{ ec2_output }}"
     when: action == "create"
+
 ######Crate r53 records#########
   - name: create r53 records
     amazon.aws.route53:
@@ -43,7 +44,7 @@
       overwrite: true
     loop: "{{ ec2_output.results }}"
     when: action == "create"
-    
+
   - name: create r53 records frontend
     amazon.aws.route53:
       state: present
@@ -58,6 +59,7 @@
     when:
     - item.item == "frontend"
     - action == "create"
+    
   ######DESTROY#####
   - name: delete r53 records for frontend
     amazon.aws.route53:
