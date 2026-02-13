@@ -10,7 +10,7 @@
   - name: starting mysql server services
     ansible.builtin.service:
       name: mysqld
-      state: started
+      state: restarted
       enable: yes
   
   - name: setup root password
