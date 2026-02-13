@@ -1,5 +1,5 @@
 - name: roboshop project creation with Ansible
-  hosts: local
+  hosts: all
   connection: local
   become: yes
   vars:
@@ -20,15 +20,15 @@
       image_id: "{{ ami_id }}"
       tags: 
         Project: roboshop
-        Component: {{ item }}
-        Environment: {{ env }}
+        Component: "{{ item }}"
+        Environment: "{{ env }}"
         Name: "{{ item }}-{{ env }}"
-    loop : {{ instances }}
+    loop : "{{ instances }}"
     register: ec2_output
-    when: action == create
+    when: action == "create"
   - name: print the ec2_output
     ansible.builtin.debug:
-      msg: {{ ec2_output }}
+      msg: "{{ ec2_output }}"
     when: action == "create"
   - name: create r53 records
     amazon.aws.route53:
