@@ -8,8 +8,8 @@
     env: dev
     action: create
     instances:
-      - mongodb
-      - catalogue
+    - mongodb
+    - catalogue
     tasks:
     #########Create EC2 instances###########
     - name: Create ec2 instances
