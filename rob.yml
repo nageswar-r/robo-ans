@@ -23,7 +23,7 @@
         Component: "{{ item }}"
         Environment: "{{ env }}"
         Name: "{{ item }}-{{ env }}"
-    loop: "{{ instance }}"
+    loop: "{{ instances }}"
     register: ec2_output
     when: action == "create"
 
